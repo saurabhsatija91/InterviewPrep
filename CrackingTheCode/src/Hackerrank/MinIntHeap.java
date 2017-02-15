@@ -8,6 +8,7 @@ public class MinIntHeap {
 	
 	int[] items = new int[capacity];
 	
+	//Indices
 	private int getLeftChildIndex(int parentIndex) {
 		return 2 * parentIndex + 1;
 	}
@@ -18,6 +19,7 @@ public class MinIntHeap {
 		return (childIndex - 1) / 2;
 	}
 	
+	//has child or parent
 	private boolean hasLeftChild (int index) {
 		return (getLeftChildIndex(index) < size);
 	}
@@ -28,6 +30,7 @@ public class MinIntHeap {
 		return (getParentIndex(index) >= 0);
 	}
 	
+	//Get nodes values
 	private int leftChild(int index) {
 		return items[getLeftChildIndex(index)];
 	}

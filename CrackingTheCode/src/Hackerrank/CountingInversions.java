@@ -12,8 +12,8 @@ public class CountingInversions {
 		
 		int mid = left + (right - left) / 2;
 		int count = 0;
-		count += mergeSort(arr, left, mid, aux);
-		count += mergeSort(arr, mid + 1, right, aux);
+		count += mergeSort(aux, left, mid, arr);
+		count += mergeSort(aux, mid + 1, right, arr);
 		count += merge(arr, left, right, mid, aux);
 		
 		return count; 
@@ -24,6 +24,17 @@ public class CountingInversions {
 		int i = left;
 		int j = mid + 1;
 		int k = left;
+		
+		System.out.print(">>>Arr: ");
+		for (int m : arr)
+			System.out.print(m + " ");
+		System.out.println();
+		
+		System.out.print("---Aux: ");
+		for (int m : aux)
+			System.out.print(m + " ");
+		System.out.println();
+		
 		
 		while (i <= mid || j <= right) {
 			if (i > mid)
@@ -43,7 +54,7 @@ public class CountingInversions {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {1, 4, 3, 2, 5};
+		int[] arr = {4, 3, 3, 6, 5};
 		System.out.println(countInversions(arr));
 	}
 }
